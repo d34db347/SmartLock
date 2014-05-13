@@ -92,7 +92,7 @@ public class LockPatternActivity extends Activity  {
         int key = event.getKeyCode();
         switch (key)
         {
-            case KeyEvent.KEYCODE_HOME:
+            //case KeyEvent.KEYCODE_HOME:
             //case KeyEvent.KEYCODE_BACK:
             //case KeyEvent.KEYCODE_VOLUME_UP:
             //case KeyEvent.KEYCODE_VOLUME_DOWN:
