@@ -6,7 +6,7 @@
     tools:context="io.github.gncy2013.smartlock.demo.LockPatternActivity" >
 
     <RelativeLayout
-        android:id="@+id/tandd"
+        android:id="@+id/time_and_date"
         android:layout_marginTop="50dip"
         android:layout_marginBottom="10dip"
         android:layout_gravity="center_horizontal"
@@ -50,7 +50,7 @@
     <TextView android:id="@+id/white"
         android:layout_width="fill_parent"
         android:layout_height="95sp"
-        android:layout_below="@+id/tandd"/>
+        android:layout_below="@+id/time_and_date"/>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_below="@+id/white"

@@ -6,7 +6,7 @@
     tools:context="io.github.gncy2013.smartlock.demo.LockPatternActivity" >
 
     <RelativeLayout
-        android:id="@+id/tandd"
+        android:id="@+id/time_and_date"
         android:layout_marginTop="50dip"
         android:layout_marginBottom="10dip"
         android:layout_gravity="center_horizontal"
@@ -50,7 +50,7 @@
     <TextView android:id="@+id/white"
         android:layout_width="fill_parent"
         android:layout_height="95sp"
-        android:layout_below="@+id/tandd"/>
+        android:layout_below="@+id/time_and_date"/>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_below="@+id/white"
@@ -60,10 +60,9 @@
         android:orientation="vertical">
         <!-- 锁屏核心功能操作界面 -->
             <io.github.gncy2013.smartlock.demo.LockPatternView
-
-            android:layout_gravity="left"
-            android:id="@+id/LockView"
-            android:layout_width="18mm"
-            android:layout_height="18mm" />
+                android:layout_gravity="left"
+                android:id="@+id/LockView"
+                android:layout_width="18mm"
+                android:layout_height="18mm" />
     </LinearLayout>
 </RelativeLayout>

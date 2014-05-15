@@ -37,10 +37,8 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         data1 = new ArrayList<String>();
         data2 = new ArrayList<String>();
         appendData();
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice,
-                data1);
-        adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice,
-                data2);
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice, data1);
+        adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice, data2);
 
         //给每一个选项添加单选选项。
         //设置ListView的选择的样式为单选列表
@@ -62,8 +60,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
     }
     //添加点击
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position,
-                            long id) {
+         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         temple = parent.getItemAtPosition(position).toString();
         if (temple.equals("18*18") || temple.equals("30*30") || temple.equals("41*41")) {
             selectSize=position;
@@ -76,9 +73,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
                 "position : " + position + " item : " + temple,
                 Toast.LENGTH_SHORT
         ).show();
-
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +91,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
      */
     public void onPatternDemoClick(View view) {
         Intent intent = new Intent();
-        intent.putExtra("pattern_size",selectSize);// sent pettern_size
+        intent.putExtra("pattern_size",selectSize);// send pattern_size
         intent.putExtra("pattern_location",selectLocation);
         intent.setClass(getApplicationContext(), LockPatternActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);

@@ -126,8 +126,7 @@ public class TimeView {
         @Override
         public void onReceive(Context context, Intent intent) {
             // Post a runnable to avoid blocking the broadcast.
-            final boolean timezoneChanged =
-                    intent.getAction().equals(Intent.ACTION_TIMEZONE_CHANGED);
+            final boolean timezoneChanged = intent.getAction().equals(Intent.ACTION_TIMEZONE_CHANGED);
             final TimeView status = mTimeView.get();
             if (status != null) {
                 status.mHandler.post(new Runnable() {
@@ -146,7 +145,7 @@ public class TimeView {
                 }
             }
         }
-    };
+    }
 
     /*监听URI为Settings.System.CONTENT_URI的数据变化，即12小时制还是24小时制
      * 的变化(一般来自用户在设置里对时间显示的设置)
@@ -195,7 +194,7 @@ public class TimeView {
 
     public void registerComponent()
     {
-        // TODO Auto-generated method stub
+        //TODO Auto-generated method stub
         Log.d("TimeView", "registerComponent()");
 
         if (mIntentReceiver == null) {

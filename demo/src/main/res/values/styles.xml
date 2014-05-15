@@ -5,6 +5,6 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="LPActivity" parent="android:Theme.Holo.Wallpaper.NoTitleBar">
+    <style name="LockActivity" parent="android:Theme.Holo.Wallpaper.NoTitleBar">
     </style>
 </resources>

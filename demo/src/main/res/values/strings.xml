@@ -8,6 +8,8 @@
     <string name="action_settings">Settings</string>
     <string name="pattern_setting_text">密码设置</string>
     <string name="pattern_demo_text">效果预览</string>
+    <string name="confirm_pwd">确认密码</string>
+    <string name="reset_pwd">重设密码</string>
 
     <string name="activity_pattern_lock">LockPatternActivity</string>
     <string name="activity_setting">SettingActivity</string>

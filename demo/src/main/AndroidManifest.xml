@@ -21,13 +21,13 @@
         <activity
             android:name=".LockPatternActivity"
             android:label="@string/activity_pattern_lock"
-            android:theme="@style/LPActivity"
+            android:theme="@style/LockActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".SetPatternActivity"
             android:label="@string/activity_setting"
-            android:theme="@style/LPActivity"
+            android:theme="@style/LockActivity"
             android:screenOrientation="portrait" >
         </activity>
 

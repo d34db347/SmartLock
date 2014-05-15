@@ -7,21 +7,23 @@
 
 
      <io.github.gncy2013.smartlock.demo.LockPatternView
-        android:id="@+id/lpv_lock"
+        android:id="@+id/LockView"
         android:layout_width="300dp"
         android:layout_height="300dp"
         />
 
     <Button
-        android:id="@+id/btn_set_pwd"
+        android:id="@+id/btn_confirm_pwd"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="设置密码"
+        android:onClick="onConfirmClick"
+        android:text="@string/confirm_pwd"
         />
     <Button
         android:id="@+id/btn_reset_pwd"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="清除密码"
+        android:onClick="onResetClick"
+        android:text="@string/reset_pwd"
         />
 </LinearLayout>
