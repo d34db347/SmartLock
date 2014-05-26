@@ -1,10 +1,11 @@
-package io.github.gncy2013.smartlock.demo;
+package io.github.gncy2013.smartlock.common;
 
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,8 +18,7 @@ import java.util.List;
 
 public class LockPatternUtils {
 
-    private static final String TAG = "LockPatternUtils";
-    private final static String KEY_LOCK_PWD = "lock_pwd";
+    //private static final String TAG = "LockPatternUtils";
     private static Context mContext;
     private static SharedPreferences preference;
     //private final ContentResolver mContentResolver;
@@ -26,7 +26,9 @@ public class LockPatternUtils {
     public LockPatternUtils(Context context) {
         mContext = context;
         preference = PreferenceManager.getDefaultSharedPreferences(mContext);
-        // mContentResolver = context.getContentResolver();
+        //mContentResolver = context.getContentResolver();
+        //SharedPreferences PATTERN_PWD;
+        //SharedPreferences.Editor editor;
     }
 
     /**
@@ -64,16 +66,35 @@ public class LockPatternUtils {
 
     public void saveLockPattern(List<LockPatternView.Cell> pattern){
         Editor editor = preference.edit();
-        editor.putString(KEY_LOCK_PWD, patternToString(pattern));
+        editor.putString("pattern_pwd", patternToString(pattern));
         editor.commit();
     }
 
-    public String getLockPaternString(){
-        return preference.getString(KEY_LOCK_PWD, "");
+    public String getLockPatternString(){
+        return preference.getString("pattern_pwd", "");
+    }
+
+    public void toEraseArray(){
+        String pwdString = preference.getString("pattern_pwd", "");
+        pwdString = pwdString.replace("[", "");
+        pwdString = pwdString.replace("]", "");
+        pwdString = pwdString.replace(" ", "");
+        String[] eraseArrayS = null;
+        eraseArrayS = pwdString.split(",");
+        int[] eraseArray = new int[eraseArrayS.length];
+        for (int i = 0; i < eraseArrayS.length; i++) {
+            eraseArray[i] = Integer.parseInt(eraseArrayS[i]);
+            eraseArray[i] = eraseArray[i] * 2 + (eraseArray[i] / 3) * 4;
+        }
+        int[] erasePoint = new int[eraseArrayS.length - 1];
+        for (int i = 0; i < eraseArrayS.length - 1; i++) {
+            erasePoint[i] = (eraseArray[i] + eraseArray[i + 1]) / 2;
+            System.out.println(erasePoint[i]);
+        }
     }
 
     public int checkPattern(List<LockPatternView.Cell> pattern) {
-        String stored = getLockPaternString();
+        String stored = getLockPatternString();
         if(!stored.isEmpty()){
             return stored.equals(patternToString(pattern))?1:0;
         }

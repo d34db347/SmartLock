@@ -17,20 +17,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".LockPatternActivity"
+            android:name="io.github.gncy2013.smartlock.activity.LockPatternActivity"
             android:label="@string/activity_pattern_lock"
-            android:theme="@style/LockActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@style/LockActivity" >
         </activity>
         <activity
-            android:name=".SetPatternActivity"
+            android:name="io.github.gncy2013.smartlock.activity.SetPatternActivity"
             android:label="@string/activity_setting"
-            android:theme="@style/LockActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@style/LockActivity" >
         </activity>
-
+        <activity
+            android:name="io.github.gncy2013.smartlock.activity.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="io.github.gncy2013.smartlock.demo.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="io.github.gncy2013.smartlock.demo.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

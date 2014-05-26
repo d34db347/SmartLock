@@ -1,4 +1,4 @@
-package io.github.gncy2013.smartlock.demo;
+package io.github.gncy2013.smartlock.common;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -18,6 +18,8 @@ import java.lang.ref.WeakReference;
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
 import java.util.Date;
+
+import io.github.gncy2013.smartlock.demo.R;
 
 /**
  * SmartLock

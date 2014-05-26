@@ -1,0 +1,34 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pattern_setting_text"
+        android:id="@+id/pattern_setting"
+        android:onClick="onPatternSettingClick"
+        android:layout_marginBottom="82dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pattern_ui_setting"
+        android:id="@+id/pattern_ui_setting"
+        android:layout_alignTop="@+id/pattern_demo"
+        android:onClick="onSettingClick"
+        android:layout_centerHorizontal="true" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pattern_demo_text"
+        android:id="@+id/pattern_demo"
+        android:layout_alignTop="@+id/pattern_setting"
+        android:onClick="onPatternDemoClick"
+        android:layout_alignParentRight="true" />
+
+</RelativeLayout>

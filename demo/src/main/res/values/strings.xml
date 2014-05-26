@@ -5,12 +5,11 @@
     <string name="title_section1">Pattern</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
-    <string name="action_settings">Settings</string>
-    <string name="pattern_setting_text">密码设置</string>
+    <string name="pattern_setting_text">设置密码</string>
     <string name="pattern_demo_text">效果预览</string>
     <string name="confirm_pwd">确认密码</string>
     <string name="reset_pwd">重设密码</string>
-
+    <string name="OK">确定</string>
     <string name="activity_pattern_lock">LockPatternActivity</string>
     <string name="activity_setting">SettingActivity</string>
     <string name="month_day_year">yyyy-MM-dd EEE</string>
@@ -23,5 +22,28 @@
     <string name="lockscreen_access_pattern_cell_added">Cell added</string>
     <!-- Accessibility description sent when user completes drawing a pattern. [CHAR LIMIT=NONE] -->
     <string name="lockscreen_access_pattern_detected">Pattern completed</string>
+    <string name="fragment_pattern_lock">LockPatternFragment</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="setting_pattern_size">设置图案大小</string>
+    <string name="setting_pattern_location">设置图案位置</string>
+    <string name="pattern_size_18">18mm*18mm</string>
+    <string name="pattern_size_30">30mm*30mm</string>
+    <string name="pattern_size_41">41mm*41mm</string>
+    <string name="pattern_loc_left">偏左</string>
+    <string name="pattern_loc_mid">居中</string>
+    <string name="pattern_loc_right">偏右</string>
+    <string name="pattern_ui_setting">界面设置</string>
+    <string-array name="pattern_size_array">
+        <item>18mm*18mm</item>
+        <item>30mm*30mm</item>
+        <item>41mm*41mm</item>
+    </string-array>
+    <string-array name="pattern_loc_array">
+        <item>左</item>
+        <item>中</item>
+        <item>右</item>
+    </string-array>
 
 </resources>

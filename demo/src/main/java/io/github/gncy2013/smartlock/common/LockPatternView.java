@@ -1,4 +1,4 @@
-package io.github.gncy2013.smartlock.demo;
+package io.github.gncy2013.smartlock.common;
 /*
  * Copyright (C) 2007 The Android Open Source Project
  *
@@ -38,6 +38,8 @@ import android.view.accessibility.AccessibilityEvent;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.github.gncy2013.smartlock.demo.R;
 
 /**
  * Displays and detects the user's unlock attempt, which is a drag of a finger

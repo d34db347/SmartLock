@@ -1,6 +1,8 @@
-package io.github.gncy2013.smartlock.demo;
+package io.github.gncy2013.smartlock.activity;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.WindowManager;
@@ -8,9 +10,13 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import io.github.gncy2013.smartlock.demo.LockPatternView.Cell;
-import io.github.gncy2013.smartlock.demo.LockPatternView.DisplayMode;
-import io.github.gncy2013.smartlock.demo.LockPatternView.OnPatternListener;
+import io.github.gncy2013.smartlock.common.LockPatternUtils;
+import io.github.gncy2013.smartlock.common.LockPatternView;
+import io.github.gncy2013.smartlock.common.LockPatternView.Cell;
+import io.github.gncy2013.smartlock.common.LockPatternView.DisplayMode;
+import io.github.gncy2013.smartlock.common.LockPatternView.OnPatternListener;
+import io.github.gncy2013.smartlock.common.TimeView;
+import io.github.gncy2013.smartlock.demo.R;
 
 public class LockPatternActivity extends Activity  {
     private LockPatternView mLockPatternView;
@@ -21,8 +27,10 @@ public class LockPatternActivity extends Activity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        int pattern_location = getIntent().getIntExtra("pattern_location",1);
-        int pattern_size = getIntent().getIntExtra("pattern_size",0);
+        SharedPreferences loc_size;
+        loc_size = getSharedPreferences("LOC_SIZE", MODE_PRIVATE);
+        int pattern_location = loc_size.getInt("LOC", 1);
+        int pattern_size = loc_size.getInt("SIZE", 1);
         int location_and_size = pattern_location * 10 + pattern_size;
         switch (location_and_size) {
             case 0 : setContentView(R.layout.activity_pattern_lock_left_18); break;
@@ -49,8 +57,18 @@ public class LockPatternActivity extends Activity  {
                             mLockPatternView.clearPattern();
                             Toast.makeText(LockPatternActivity.this, "请先设置密码", Toast.LENGTH_SHORT).show();
                             LockPatternActivity.this.finish();
+                            Intent intent = new Intent();
+                            intent.setClass(getApplicationContext(), SetPatternActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent);
                          }
-                    } else { Toast.makeText(LockPatternActivity.this, "密码正确", Toast.LENGTH_SHORT).show(); }
+                    } else {
+                            Toast.makeText(LockPatternActivity.this, "密码正确", Toast.LENGTH_SHORT).show();
+                            /** Jump to Erase
+                            *
+                            */
+                            mLockPatternUtils.toEraseArray();
+                           }
             }
             public void onPatternCleared() {}
             public void onPatternCellAdded(List<Cell> pattern) {}

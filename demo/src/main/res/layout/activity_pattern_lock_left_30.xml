@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="io.github.gncy2013.smartlock.demo.LockPatternActivity" >
+    tools:context="io.github.gncy2013.smartlock.activity.LockPatternActivity" >
 
     <RelativeLayout
         android:id="@+id/time_and_date"
@@ -59,7 +59,7 @@
         android:gravity="center"
         android:orientation="vertical">
         <!-- 锁屏核心功能操作界面 -->
-            <io.github.gncy2013.smartlock.demo.LockPatternView
+            <io.github.gncy2013.smartlock.common.LockPatternView
             android:layout_gravity="left"
             android:id="@+id/LockView"
             android:layout_width="30mm"
