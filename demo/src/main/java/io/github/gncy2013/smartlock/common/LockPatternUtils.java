@@ -64,9 +64,29 @@ public class LockPatternUtils {
         return Arrays.toString(res);
     }
 
+    public static String eraseToString(List<EraseView.Cell> pattern) {
+        if (pattern == null) {
+            return "";
+        }
+        final int patternSize = pattern.size();
+
+        byte[] res = new byte[patternSize];
+        for (int i = 0; i < patternSize; i++) {
+            EraseView.Cell cell = pattern.get(i);
+            res[i] = (byte) (cell.getRow() * 5 + cell.getColumn());
+        }
+        return Arrays.toString(res);
+    }
+
     public void saveLockPattern(List<LockPatternView.Cell> pattern){
         Editor editor = preference.edit();
         editor.putString("pattern_pwd", patternToString(pattern));
+        editor.commit();
+    }
+
+    public void saveErasePattern(List<EraseView.Cell> pattern){
+        Editor editor = preference.edit();
+        editor.putString("erase_pattern", eraseToString(pattern));
         editor.commit();
     }
 
@@ -74,23 +94,51 @@ public class LockPatternUtils {
         return preference.getString("pattern_pwd", "");
     }
 
-    public void toEraseArray(){
+    public int checkErase(){
         String pwdString = preference.getString("pattern_pwd", "");
         pwdString = pwdString.replace("[", "");
         pwdString = pwdString.replace("]", "");
         pwdString = pwdString.replace(" ", "");
+        String[] oriArrayS = null;
+        oriArrayS = pwdString.split(",");
+        int[] oriArray = new int[oriArrayS.length];
+        for (int i = 0; i < oriArrayS.length; i++) {
+            oriArray[i] = Integer.parseInt(oriArrayS[i]);
+            oriArray[i] = oriArray[i] * 2 + (oriArray[i] / 3) * 4;
+        }
+        int[] oriPoint = new int[oriArrayS.length - 1];
+        for (int i = 0; i < oriArrayS.length - 1; i++) {
+            oriPoint[i] = (oriArray[i] + oriArray[i + 1]) / 2;
+            System.out.println("需要擦除的点" + oriPoint[i]);
+        }
+
+        String eraseString = preference.getString("erase_pattern", "");
+        eraseString = eraseString.replace("[", "");
+        eraseString = eraseString.replace("]", "");
+        eraseString = eraseString.replace(" ", "");
         String[] eraseArrayS = null;
-        eraseArrayS = pwdString.split(",");
-        int[] eraseArray = new int[eraseArrayS.length];
+        eraseArrayS = eraseString.split(",");
+        int [] eraseArray = new int[eraseArrayS.length];
         for (int i = 0; i < eraseArrayS.length; i++) {
             eraseArray[i] = Integer.parseInt(eraseArrayS[i]);
-            eraseArray[i] = eraseArray[i] * 2 + (eraseArray[i] / 3) * 4;
+            System.out.println("被擦除的点" + eraseArray[i]);
         }
-        int[] erasePoint = new int[eraseArrayS.length - 1];
-        for (int i = 0; i < eraseArrayS.length - 1; i++) {
-            erasePoint[i] = (eraseArray[i] + eraseArray[i + 1]) / 2;
-            System.out.println(erasePoint[i]);
+
+        int equal = 0;
+        for (int anOriPoint : oriPoint) {
+            for (int anEraseArray : eraseArray) {
+                if (anOriPoint == anEraseArray)
+                    equal++;
+            }
         }
+
+        System.out.println("符合率" + (double) equal / (double) oriPoint.length);
+        if ((double) equal / (double) oriPoint.length > 0.8) {
+            System.out.println("HEHEHEHEHEHE");
+            return 1;
+        }
+        else
+            return 2;
     }
 
     public int checkPattern(List<LockPatternView.Cell> pattern) {
@@ -103,5 +151,9 @@ public class LockPatternUtils {
 
     public void clearLock() {
         saveLockPattern(null);
+    }
+
+    public void clearErase() {
+        saveErasePattern(null);
     }
 }

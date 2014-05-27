@@ -35,6 +35,7 @@
     <string name="pattern_loc_mid">居中</string>
     <string name="pattern_loc_right">偏右</string>
     <string name="pattern_ui_setting">界面设置</string>
+
     <string-array name="pattern_size_array">
         <item>18mm*18mm</item>
         <item>30mm*30mm</item>
@@ -45,5 +46,7 @@
         <item>中</item>
         <item>右</item>
     </string-array>
+
+    <string name="title_activity_erase">EraseActivity</string>
 
 </resources>

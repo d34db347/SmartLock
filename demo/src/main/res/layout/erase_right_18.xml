@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="io.github.gncy2013.smartlock.activity.EraseActivity" >
+
+    <RelativeLayout
+        android:id="@+id/time_and_date"
+        android:layout_marginTop="50dip"
+        android:layout_marginBottom="10dip"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 时间显示 -->
+        <TextView android:id="@+id/time"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="65sp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginBottom="6dip"
+            android:textColor="#ffffff"
+            android:gravity="center_horizontal" />
+
+        <!-- 上午、下午显示 -->
+        <TextView
+            android:id="@+id/am_pm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="none"
+            android:textSize="20sp"
+            android:layout_marginLeft="8dip"
+            android:layout_toRightOf="@id/time"
+            android:layout_alignBottom="@id/time"/>
+
+        <!-- 日期显示 -->
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/time"
+            android:singleLine="true"
+            android:gravity="center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="14sp"/>
+
+    </RelativeLayout>
+    <TextView android:id="@+id/white"
+        android:layout_width="fill_parent"
+        android:layout_height="95sp"
+        android:layout_below="@+id/time_and_date"/>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_below="@+id/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+        <!-- 锁屏核心功能操作界面 -->
+        <io.github.gncy2013.smartlock.common.EraseView
+            android:layout_gravity="right"
+            android:id="@+id/EraseView"
+            android:layout_width="18mm"
+            android:layout_height="18mm" />
+    </LinearLayout>
+</RelativeLayout>

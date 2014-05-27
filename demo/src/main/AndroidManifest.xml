@@ -30,12 +30,10 @@
             android:theme="@style/LockActivity" >
         </activity>
         <activity
-            android:name="io.github.gncy2013.smartlock.activity.SettingsActivity"
-            android:label="@string/title_activity_settings"
-            android:parentActivityName="io.github.gncy2013.smartlock.demo.MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="io.github.gncy2013.smartlock.demo.MainActivity" />
+            android:name="io.github.gncy2013.smartlock.activity.EraseActivity"
+            android:label="@string/title_activity_erase"
+            android:screenOrientation="portrait"
+            android:theme="@style/EraseActivity" >
         </activity>
     </application>
 

@@ -67,8 +67,12 @@ public class LockPatternActivity extends Activity  {
                             /** Jump to Erase
                             *
                             */
-                            mLockPatternUtils.toEraseArray();
-                           }
+                            LockPatternActivity.this.finish();
+                            Intent intent = new Intent();
+                            intent.setClass(getApplicationContext(), EraseActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent);
+                        }
             }
             public void onPatternCleared() {}
             public void onPatternCellAdded(List<Cell> pattern) {}
