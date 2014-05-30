@@ -48,5 +48,6 @@
     </string-array>
 
     <string name="title_activity_erase">EraseActivity</string>
+    <string name="intro_lock_pattern">解锁后擦除留下的痕迹完成解锁过程</string>
 
 </resources>

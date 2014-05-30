@@ -29,6 +29,27 @@
         android:id="@+id/pattern_demo"
         android:layout_alignTop="@+id/pattern_setting"
         android:onClick="onPatternDemoClick"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        android:textColor="#ff0000" />
+
+    <io.github.gncy2013.smartlock.common.LockPatternView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/DemoView"
+        android:background="#8CAFD5"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/intro_lock_pattern"
+        android:textSize="10pt"
+        android:id="@+id/textView"
+        android:layout_below="@+id/DemoView"
+        android:layout_alignLeft="@+id/DemoView"
+        android:layout_alignRight="@+id/DemoView"
+        android:layout_alignStart="@+id/DemoView" />
 
 </RelativeLayout>

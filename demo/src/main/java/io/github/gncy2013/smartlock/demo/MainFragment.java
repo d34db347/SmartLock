@@ -24,6 +24,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
+import io.github.gncy2013.smartlock.common.LockPatternView;
 import io.github.gncy2013.smartlock.common.SlidingTabLayout;
 
 /**
@@ -95,7 +98,7 @@ public class MainFragment extends Fragment {
          */
         @Override
         public int getCount() {
-            return 3;
+            return 1;
         }
 
         /**
@@ -129,10 +132,6 @@ public class MainFragment extends Fragment {
         }
         // END_INCLUDE (pageradapter_getpagetitle)
 
-        /**
-         * Instantiate the {@link View} which should be displayed at {@code position}. Here we
-         * inflate a layout from the apps resources and then change the text view to signify the position.
-         */
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             switch (position) {
@@ -141,16 +140,22 @@ public class MainFragment extends Fragment {
                     View view = getActivity().getLayoutInflater().inflate(R.layout.fragment_pattern_lock, container, false);
                     // Add the newly created View to the ViewPager
                     container.addView(view);
-                    // Retrieve a TextView from the inflated View, and update it's text
-            /*TextView title = (TextView) view.findViewById(R.id.item_title);
-            title.setText(String.valueOf(position + 1));*/
-
-                    // Return the View
+                    LockPatternView mLockPatternView = (LockPatternView) view.findViewById(R.id.DemoView);
+                    ArrayList<LockPatternView.Cell> demoPattern = new ArrayList<LockPatternView.Cell>();
+                    demoPattern.add(LockPatternView.Cell.of(0,0));
+                    demoPattern.add(LockPatternView.Cell.of(0,1));
+                    demoPattern.add(LockPatternView.Cell.of(0,2));
+                    demoPattern.add(LockPatternView.Cell.of(1,1));
+                    demoPattern.add(LockPatternView.Cell.of(2,0));
+                    demoPattern.add(LockPatternView.Cell.of(2,1));
+                    demoPattern.add(LockPatternView.Cell.of(2,2));
+                    mLockPatternView.setPattern(LockPatternView.DisplayMode.Animate, demoPattern);
+                    mLockPatternView.disableInput();
                     return view;
                 case 1 :
-                case 2 :View view2 = getActivity().getLayoutInflater().inflate(R.layout.fragment_pattern_lock, container, false);
+                case 2 :/*View view2 = getActivity().getLayoutInflater().inflate(R.layout.fragment_pattern_lock, container, false);
                         container.addView(view2);
-                        return view2;
+                        return view2;*/
             }
             return null;
         }
