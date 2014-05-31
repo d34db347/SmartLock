@@ -46,8 +46,13 @@
         <item>中</item>
         <item>右</item>
     </string-array>
+    <string-array name="stealth_mode_array">
+        <item>显示轨迹</item>
+        <item>隐藏轨迹</item>
+    </string-array>
 
     <string name="title_activity_erase">EraseActivity</string>
     <string name="intro_lock_pattern">解锁后擦除留下的痕迹完成解锁过程</string>
+    <string name="setting_stealth_mode">是否显示轨迹</string>
 
 </resources>

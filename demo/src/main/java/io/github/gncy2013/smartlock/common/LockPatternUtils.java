@@ -133,7 +133,7 @@ public class LockPatternUtils {
         }
 
         System.out.println("符合率" + (double) equal / (double) oriPoint.length);
-        if ((double) equal / (double) oriPoint.length > 0.8) {
+        if ((double) equal / (double) oriPoint.length > 0.0) {
             System.out.println("HEHEHEHEHEHE");
             return 1;
         }

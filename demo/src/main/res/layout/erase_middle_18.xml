@@ -63,6 +63,8 @@
             android:layout_gravity="center_horizontal"
             android:id="@+id/EraseView"
             android:layout_width="18mm"
-            android:layout_height="18mm" />
+            android:layout_height="18mm"
+            android:background="#8CAFD5"
+            android:alpha="0.5"/>
     </LinearLayout>
 </RelativeLayout>

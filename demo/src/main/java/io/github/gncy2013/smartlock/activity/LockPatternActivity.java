@@ -31,6 +31,7 @@ public class LockPatternActivity extends Activity  {
         loc_size = getSharedPreferences("LOC_SIZE", MODE_PRIVATE);
         int pattern_location = loc_size.getInt("LOC", 1);
         int pattern_size = loc_size.getInt("SIZE", 1);
+        int isStealth = loc_size.getInt("STEALTH", 0);
         int location_and_size = pattern_location * 10 + pattern_size;
         switch (location_and_size) {
             case 0 : setContentView(R.layout.activity_pattern_lock_left_18); break;
@@ -45,6 +46,10 @@ public class LockPatternActivity extends Activity  {
         }
         mLockPatternView = (LockPatternView) findViewById(R.id.LockView);
         mLockPatternUtils = new LockPatternUtils(this);
+        //是否显示轨迹
+        if (isStealth == 1)
+            mLockPatternView.setInStealthMode(true);
+
         mLockPatternView.setOnPatternListener(new OnPatternListener() {
             public void onPatternStart() {}
             public void onPatternDetected(List<Cell> pattern) {

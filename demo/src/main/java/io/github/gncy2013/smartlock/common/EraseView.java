@@ -241,7 +241,7 @@ public class EraseView extends View {
 
         setClickable(true);
 
-        mPathPaint.setAntiAlias(true);
+        /*mPathPaint.setAntiAlias(true);
         mPathPaint.setDither(true);
         mPathPaint.setColor(Color.WHITE);   // TODO this should be from the style
         mPathPaint.setAlpha(mStrokeAlpha);
@@ -266,13 +266,13 @@ public class EraseView extends View {
         for (Bitmap bitmap : bitmaps) {
             mBitmapWidth = Math.max(mBitmapWidth, bitmap.getWidth());
             mBitmapHeight = Math.max(mBitmapHeight, bitmap.getHeight());
-        }
+        }*/
 
     }
 
-    private Bitmap getBitmapFor(int resId) {
+    /*private Bitmap getBitmapFor(int resId) {
         return BitmapFactory.decodeResource(getContext().getResources(), resId);
-    }
+    }*/
 
     /**
      * @return Whether the view is in stealth mode.
@@ -865,7 +865,7 @@ public class EraseView extends View {
             //float centerY = mPaddingTop + i * mSquareHeight + (mSquareHeight / 2);
             for (int j = 0; j < 5; j++) {
                 float leftX = paddingLeft + j * squareWidth;
-                drawCircle(canvas, (int) leftX, (int) topY, drawLookup[i][j]);
+//                drawCircle(canvas, (int) leftX, (int) topY, drawLookup[i][j]);
             }
         }
 
@@ -932,8 +932,8 @@ public class EraseView extends View {
         mCircleMatrix.preScale(sx, sy);
         mCircleMatrix.preTranslate(-mBitmapWidth/2, -mBitmapHeight/2);
 
-        canvas.drawBitmap(outerCircle, mCircleMatrix, mPaint);
-        canvas.drawBitmap(innerCircle, mCircleMatrix, mPaint);
+//        canvas.drawBitmap(outerCircle, mCircleMatrix, mPaint);
+//        canvas.drawBitmap(innerCircle, mCircleMatrix, mPaint);
     }
 
     @Override

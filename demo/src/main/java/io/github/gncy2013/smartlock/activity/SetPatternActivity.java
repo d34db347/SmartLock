@@ -26,6 +26,7 @@ public class SetPatternActivity extends Activity {
         mLockPatternView = (LockPatternView) findViewById(R.id.LockView);
 
         mLockPatternUtils = new LockPatternUtils(this);
+
         //启动设置时清空密码
         mLockPatternView.clearPattern();
         mLockPatternUtils.clearLock();

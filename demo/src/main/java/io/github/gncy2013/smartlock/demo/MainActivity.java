@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.DialogPreference;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -44,7 +45,7 @@ public class MainActivity extends FragmentActivity {
                 .setSingleChoiceItems(R.array.pattern_size_array, checked, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this, String.valueOf(which), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, String.valueOf(which), Toast.LENGTH_SHORT).show();
                         editor.putInt("SIZE", which);
                         editor.commit();
                     }
@@ -62,15 +63,36 @@ public class MainActivity extends FragmentActivity {
         int checked = loc_size.getInt("LOC", -1);
         new AlertDialog.Builder(this)
                 .setTitle(R.string.setting_pattern_location)
-                .setSingleChoiceItems(R.array.pattern_loc_array, checked , new DialogInterface.OnClickListener() {
+                .setSingleChoiceItems(R.array.pattern_loc_array, checked, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this, String.valueOf(which), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, String.valueOf(which), Toast.LENGTH_SHORT).show();
                         editor.putInt("LOC", which);
                         editor.commit();
                     }
                 })
-                .setPositiveButton("确定", null)
+                .setNeutralButton(R.string.setting_stealth_mode, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        onSetStealth();
+                    }
+                })
+                .show();
+    }
+
+    public void onSetStealth() {
+        int checked = loc_size.getInt("STEALTH", -1);
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.setting_stealth_mode)
+                .setSingleChoiceItems(R.array.stealth_mode_array, checked, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Toast.makeText(MainActivity.this, String.valueOf(which), Toast.LENGTH_SHORT).show();
+                        editor.putInt("STEALTH", which);
+                        editor.commit();
+                    }
+                })
+                .setPositiveButton(R.string.OK, null)
                 .show();
     }
 
